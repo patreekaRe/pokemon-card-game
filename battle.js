@@ -1,26 +1,28 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const starter = localStorage.getItem("starter");
 
-  if (starter === "charmander") {
-    log("You sent out Charmander!");
-  } else if (starter === "bulbasaur") {
-    log("You sent out Bulbasaur!");
-  } else if (starter === "squirtle") {
-    log("You sent out Squirtle!");
-  } else {
-    log("No starter selected — defaulting to Charmander.");
+  function log(message) {
+    const p = document.createElement("p");
+    p.textContent = message;
+    battleLog.appendChild(p);
+    battleLog.scrollTop = battleLog.scrollHeight;
   }
+
+  const starter = localStorage.getItem("starter");
 
   let deck = [];
 
   if (starter === "charmander") {
+    log("You sent out Charmander!");
     deck = ["Ember", "Ember", "Block", "Tailwind", "Ember+", "Flare Up"];
   } else if (starter === "bulbasaur") {
+    log("You sent out Bulbasaur!");
     deck = ["Vine Whip", "Grow", "Leech Seed", "Block", "Recover", "Tailwind"];
   } else if (starter === "squirtle") {
+    log("You sent out Squirtle!");
     deck = ["Water Gun", "Shell", "Block", "Bubble", "Tailwind", "Soak"];
   } else {
+    log("No starter selected — defaulting to Charmander.");
     deck = ["Ember", "Block", "Tailwind"];
   }
 
@@ -75,13 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function clearHand() {
     handContainer.innerHTML = "";
-  }
-
-  function log(message) {
-    const p = document.createElement("p");
-    p.textContent = message;
-    battleLog.appendChild(p);
-    battleLog.scrollTop = battleLog.scrollHeight;
   }
 
   function updateStats() {
