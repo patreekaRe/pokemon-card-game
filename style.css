@@ -1,0 +1,215 @@
+/* *****************************************
+/* HOT GARBAGE - PLEASE DON'T MIMIC THIS CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body{
+  background-color: rgb(255, 247, 222);
+}
+
+h1, h2{
+  text-align: center;
+}
+
+h2{
+  min-width: 350px;
+  max-width: 350px;
+  height: 50px;
+  border: 3px solid black;
+  margin: 20px auto;
+  padding: 7px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+h2:hover {
+  transform: scale(1.1);
+}
+
+.logo{
+  display: block;
+  height: 350px;
+  margin: 100px auto;
+}
+.logo:hover{
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  transform: scale(1.1);
+}
+
+.remoteControl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  max-width: 350px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid black;
+  border-radius: 20px;
+}
+
+.remoteControl button {
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  width: 95px;
+  height: 95px;
+  border-radius: 50px;
+  border-color: rgb(0, 0, 0);
+  border: 3px solid;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.remoteControl button:hover {
+  transform: scale(1.1);
+}
+
+/* #evolveButton.disabled {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  pointer-events: none;
+} */
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+#red{
+  background-image: url(https://loodibee.com/wp-content/uploads/Pokemon-Charmander-icon.png);
+  background-size: 100% 100%;
+  background-color: rgb(161, 14, 14);
+}
+#green{
+  background-image: url(https://loodibee.com/wp-content/uploads/Pokemon-Bulbasaur-icon.png);
+  background-size: 100% 100%;
+  background-color: rgb(53, 163, 2);
+}
+#blue{
+  background-image: url(https://loodibee.com/wp-content/uploads/Pokemon-Squirtle-icon.png);
+  background-size: 100% 100%;
+  background-color: rgb(28, 145, 255);
+}
+#red2{
+  background-image: url(https://static.wikia.nocookie.net/pokemon-advanced/images/0/00/Cynadquil.png);
+  background-size: 100% 100%;
+  background-color: rgba(231, 74, 26, 0.822);
+}
+#green2{
+  background-image: url(https://static.wikia.nocookie.net/pokemon-advanced/images/4/4e/Chikorita.png);
+  background-size: 100% 100%;
+  background-color: rgba(76, 197, 147, 0.822);
+}
+#blue2{
+  background-image: url(https://static.wikia.nocookie.net/pokemon-fighters-ex-roblox/images/6/67/H158.png);
+  background-size: 100% 100%;
+  background-color: rgba(6, 144, 207, 0.64);
+}#red3{
+  background-image: url(https://static.wikia.nocookie.net/goofy-legends-gl/images/6/65/Shuffle255.png);
+  background-size: 100% 100%;
+  background-color: rgba(255, 174, 0, 0.822);
+}
+#green3{
+  background-image: url(https://static.wikia.nocookie.net/goofy-legends-gl/images/4/4e/Shuffle252.png);
+  background-size: 100% 100%;
+  background-color: rgba(113, 223, 99, 0.822);
+}
+#blue3{
+  background-image: url(https://static.wikia.nocookie.net/pokemon-fighters-ex-roblox/images/e/e8/H258.png);
+  background-size: 100% 100%;
+  background-color: rgba(126, 228, 241, 0.822);
+}
+
+#pokemonImg {
+  position: absolute;
+  top: 275px;
+  left: 50%;
+  margin-left: -100px; /* half of width */
+  width: 200px;
+  height: auto;
+  display: none;
+  z-index: 5;
+  pointer-events: none;
+  transition: 
+    transform 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease,
+    margin-left 0.3s ease,
+    width 0.3s ease;
+  filter: 
+    brightness(1.2) 
+    contrast(1.1) 
+    drop-shadow(0 0 8px orange);
+}
+
+#trainerBackground {
+  position: absolute;
+  top: 918px;
+  left: 825px;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 100px;
+  background-image: url('https://i.pinimg.com/originals/a7/bc/5e/a7bc5e24c5695d8ad44d6271b44e288d.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  filter: drop-shadow(0px 10px 12px rgba(0, 0, 0, 0.5));
+}
+  /* position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 110px;
+  background-image: url('https://i.pinimg.com/originals/a7/bc/5e/a7bc5e24c5695d8ad44d6271b44e288d.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  pointer-events: none;
+} */
+
+#pokemonImg.animate {
+  animation: glow 0.8s ease-in-out;
+}
+
+@keyframes glow {
+  0% { filter: brightness(1); transform: scale(1); }
+  50% { filter: brightness(1.6); transform: scale(1.1); }
+  100% { filter: brightness(1); transform: scale(1); }
+}
+
+#pokemonImg.charizard-transition {
+  animation: charizardGrowFade 1.2s ease forwards;
+}
+
+@keyframes charizardGrowFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: brightness(1.2);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
