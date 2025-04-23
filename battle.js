@@ -44,6 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function drawCard() {
+    if (deck.length > 0) {
+      const cardName = deck[Math.floor(Math.random() * deck.length)];
+      const card = document.createElement("div");
+      card.className = "card";
+      card.textContent = cardName;
+      card.addEventListener("click", () => playCard(cardName));
+      handContainer.appendChild(card);
+    }
+  }
+
   function clearHand() {
     handContainer.innerHTML = "";
   }
@@ -84,8 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       case "Tailwind":
         playerEnergy -= 1;
-        playerXP += 3;
-        log("You used Tailwind! You feel energized!");
+        playerXP += 2;
+        drawCard();
+        log("You used Tailwind! Gained 2 XP and drew 1 card.");
         break;
       default:
         log("Card effect not defined.");
