@@ -2,25 +2,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokémon Deck Battle</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokémon Single Page Game</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- Starter Selection Screen -->
-  <div id="starter-screen">
-    <h1>Choose Your Starter</h1>
-    <div class="starter-options">
-      <button onclick="startGame('charmander')">Charmander</button>
-      <button onclick="startGame('bulbasaur')">Bulbasaur</button>
-      <button onclick="startGame('squirtle')">Squirtle</button>
-    </div>
+<!-- STARTER SELECT SCREEN -->
+<div id="starter-screen">
+  <h1>Choose Your Starter</h1>
+  <img id="Logo" class="logo" src="https://loodibee.com/wp-content/uploads/International-Pokemon-logo.png" />
+  <img id="pokemonImg" style="display: none;" />
+  <div class="remoteControl">
+    <button id="red" class="poke-btn" data-pokemon="charmander"></button>
+    <button id="green" class="poke-btn" data-pokemon="bulbasaur"></button>
+    <button id="blue" class="poke-btn" data-pokemon="squirtle"></button>
+    <button id="red2" class="poke-btn" data-pokemon="cyndaquil"></button>
+    <button id="green2" class="poke-btn" data-pokemon="chikorita"></button>
+    <button id="blue2" class="poke-btn" data-pokemon="totodile"></button>
+    <button id="red3" class="poke-btn" data-pokemon="torchic"></button>
+    <button id="green3" class="poke-btn" data-pokemon="treecko"></button>
+    <button id="blue3" class="poke-btn" data-pokemon="mudkip"></button>
   </div>
+  <h2 id="startGameBtn">Start Game</h2>
+</div>
 
-  <!-- Battle UI -->
-  <div id="battle-screen" style="display:none;">
+<!-- DECK BUILDER SCREEN -->
+<div id="deck-screen" style="display: none;">
+  <main class="game-container">
+    <div class="poke-card fire" id="charmander-card">
+      <img class="poke-img" src="https://media.tenor.com/hLfJG3B_ZLIAAAAj/charmander-gif-pokemon.gif" />
+      <h3 class="poke-name">Charmander</h3>
+      <p class="poke-stats">HP: 39 | XP: 0 | Lv: 5</p>
+      <div class="actions">
+        <button class="evolve-btn">Evolve</button>
+        <button class="remove-btn">Remove</button>
+      </div>
+    </div>
+    <button id="startBattleBtn">Start Battle</button>
+  </main>
+</div>
+
+<!-- BATTLE SCREEN -->
+<div id="battle-screen" style="display: none;">
+  <div class="battle-container">
     <div class="battle-header">
       <div class="player-status">
         <p>HP: <span id="player-hp">30</span></p>
@@ -30,7 +56,6 @@
       </div>
       <button id="end-turn-btn">End Turn</button>
     </div>
-
     <div class="enemy-area">
       <div class="enemy-card">
         <img src="https://i.imgur.com/ZsKTW3A.png" alt="Ashroot" />
@@ -39,14 +64,14 @@
         <p>Intent: <span id="enemy-intent">Attack (5)</span></p>
       </div>
     </div>
-
     <div class="player-hand" id="player-hand"></div>
-
     <div class="battle-log" id="battle-log">
-      <p>Battle begins once you play your first card...</p>
+      <p>Loading battle...</p>
     </div>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<!-- SCRIPTS -->
+<script src="script.js"></script>
 </body>
 </html>
