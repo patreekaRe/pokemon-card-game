@@ -1,15 +1,29 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const starter = localStorage.getItem("starter");
 
   if (starter === "charmander") {
-  log("You sent out Charmander!");
-  // Later: load a fire deck, fire background, or sprite
-} else {
-  log("No starter selected — defaulting to Charmander.");
-}
-  
+    log("You sent out Charmander!");
+  } else if (starter === "bulbasaur") {
+    log("You sent out Bulbasaur!");
+  } else if (starter === "squirtle") {
+    log("You sent out Squirtle!");
+  } else {
+    log("No starter selected — defaulting to Charmander.");
+  }
+
+  let deck = [];
+
+  if (starter === "charmander") {
+    deck = ["Ember", "Ember", "Block", "Tailwind", "Ember+", "Flare Up"];
+  } else if (starter === "bulbasaur") {
+    deck = ["Vine Whip", "Grow", "Leech Seed", "Block", "Recover", "Tailwind"];
+  } else if (starter === "squirtle") {
+    deck = ["Water Gun", "Shell", "Block", "Bubble", "Tailwind", "Soak"];
+  } else {
+    deck = ["Ember", "Block", "Tailwind"];
+  }
+
   let playerHP = 30;
   let playerEnergy = 3;
   let playerXP = 0;
@@ -27,12 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const battleLog = document.getElementById("battle-log");
   const handContainer = document.getElementById("player-hand");
   const endTurnBtn = document.getElementById("end-turn-btn");
-
-  let deck = [
-    "Ember", "Ember", "Ember",
-    "Block", "Block",
-    "Tailwind", "Tailwind"
-  ];
 
   function shuffleDeck() {
     for (let i = deck.length - 1; i > 0; i--) {
@@ -98,6 +106,63 @@ document.addEventListener("DOMContentLoaded", () => {
         playerXP += 2;
         log("You used Ember! Enemy takes 5 damage.");
         break;
+      case "Ember+":
+        enemyHP -= 8;
+        playerEnergy -= 1;
+        playerXP += 3;
+        log("You used Ember+! Enemy takes 8 damage.");
+        break;
+      case "Flare Up":
+        enemyHP -= 10;
+        playerEnergy -= 2;
+        playerXP += 4;
+        log("You used Flare Up! Massive fire damage!");
+        break;
+      case "Vine Whip":
+        enemyHP -= 4;
+        playerEnergy -= 1;
+        playerXP += 2;
+        log("You used Vine Whip! Grass lashes out.");
+        break;
+      case "Grow":
+        playerEnergy += 1;
+        playerXP += 1;
+        log("You used Grow! Gained 1 extra energy.");
+        break;
+      case "Leech Seed":
+        enemyHP -= 3;
+        playerHP += 3;
+        playerEnergy -= 1;
+        log("You used Leech Seed! Drained HP from enemy.");
+        break;
+      case "Recover":
+        playerHP += 6;
+        playerEnergy -= 1;
+        log("You used Recover! Healed 6 HP.");
+        break;
+      case "Water Gun":
+        enemyHP -= 4;
+        playerEnergy -= 1;
+        playerXP += 2;
+        log("You used Water Gun! A splash of damage.");
+        break;
+      case "Shell":
+        blockAmount += 8;
+        playerEnergy -= 1;
+        log("You used Shell! Gained 8 block.");
+        break;
+      case "Bubble":
+        enemyHP -= 2;
+        blockAmount += 2;
+        playerEnergy -= 1;
+        log("You used Bubble! Small damage and block.");
+        break;
+      case "Soak":
+        playerXP += 1;
+        blockAmount += 4;
+        playerEnergy -= 1;
+        log("You used Soak! Gained block and XP.");
+        break;
       case "Block":
         playerEnergy -= 1;
         blockAmount += 6;
@@ -153,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Initial setup
   updateStats();
   drawHand();
   log("Battle begins! Ashroot is preparing to strike...");
