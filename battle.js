@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+  const battleLog = document.getElementById("battle-log");
 
   function log(message) {
     const p = document.createElement("p");
@@ -40,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const playerBlockSpan = document.getElementById("player-block");
   const enemyHPSpan = document.getElementById("enemy-hp");
   const enemyIntentSpan = document.getElementById("enemy-intent");
-  const battleLog = document.getElementById("battle-log");
   const handContainer = document.getElementById("player-hand");
   const endTurnBtn = document.getElementById("end-turn-btn");
 
