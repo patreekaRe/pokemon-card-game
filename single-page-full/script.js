@@ -25,4 +25,4 @@ document.getElementById('startBattleBtn').addEventListener('click', () => {
   document.getElementById('battle-screen').style.display = 'block';
 });
 
-// --- Include your original battle logic and deck logic below ---
+// You can paste your battle and deck logic below here if needed
