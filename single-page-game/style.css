@@ -1,1 +1,97 @@
 
+body {
+  font-family: 'Verdana', sans-serif;
+  background: linear-gradient(to bottom, #f0f8ff, #d0f0c0);
+  margin: 0;
+  padding: 20px;
+}
+
+#starter-screen {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.starter-options button {
+  padding: 12px 24px;
+  font-size: 16px;
+  margin: 10px;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.battle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-status p {
+  margin: 5px 0;
+}
+
+#end-turn-btn {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.enemy-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.enemy-card {
+  background: white;
+  border: 3px solid #88cc88;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  width: 200px;
+}
+
+.enemy-card img {
+  width: 100px;
+  margin-bottom: 8px;
+}
+
+.player-hand {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #fef7d2;
+}
+
+.battle-log {
+  background-color: #f5f5f5;
+  border: 1px solid #aaa;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  height: 80px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
