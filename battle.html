@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Battle UI</title>
+  <link rel="stylesheet" href="battle-style.css" />
+</head>
+<body>
+  <div class="battle-container">
+    <div class="battle-header">
+      <div class="player-status">
+        <p>HP: <span id="player-hp">30</span></p>
+        <p>Energy: <span id="player-energy">3</span></p>
+        <p>XP: <span id="player-xp">0</span>/10</p>
+      </div>
+      <button id="end-turn-btn">End Turn</button>
+    </div>
+
+    <div class="enemy-area">
+      <div class="enemy-card">
+        <img src="https://i.imgur.com/ZsKTW3A.png" alt="Ashroot" />
+        <h3>Ashroot</h3>
+        <p>HP: <span id="enemy-hp">25</span></p>
+        <p>Intent: <span id="enemy-intent">Attack (5)</span></p>
+      </div>
+    </div>
+
+    <div class="player-hand" id="player-hand">
+      <div class="card">Ember</div>
+      <div class="card">Block</div>
+      <div class="card">Tailwind</div>
+    </div>
+
+    <div class="battle-log" id="battle-log">
+      <p>Battle begins! Ashroot is preparing to strike...</p>
+    </div>
+  </div>
+</body>
+</html>

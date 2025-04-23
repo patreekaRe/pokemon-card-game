@@ -1,0 +1,88 @@
+
+body {
+  font-family: 'Verdana', sans-serif;
+  background: linear-gradient(to bottom, #f0f8ff, #d0f0c0);
+  margin: 0;
+  padding: 20px;
+}
+
+.battle-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.battle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-status p {
+  margin: 5px 0;
+}
+
+#end-turn-btn {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.enemy-area {
+  display: flex;
+  justify-content: center;
+}
+
+.enemy-card {
+  background: white;
+  border: 3px solid #88cc88;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.enemy-card img {
+  width: 100px;
+  margin-bottom: 8px;
+}
+
+.player-hand {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 100px;
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #fef7d2;
+}
+
+.battle-log {
+  background-color: #f5f5f5;
+  border: 1px solid #aaa;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  height: 80px;
+  overflow-y: auto;
+}
