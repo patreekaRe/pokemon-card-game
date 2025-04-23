@@ -1,5 +1,15 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  const starter = localStorage.getItem("starter");
+
+  if (starter === "charmander") {
+  log("You sent out Charmander!");
+  // Later: load a fire deck, fire background, or sprite
+} else {
+  log("No starter selected — defaulting to Charmander.");
+}
+  
   let playerHP = 30;
   let playerEnergy = 3;
   let playerXP = 0;
