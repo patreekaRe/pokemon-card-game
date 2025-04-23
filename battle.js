@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function drawHand() {
     clearHand();
-    shuffleDeck(); // Shuffle before every draw for simplicity
+    shuffleDeck();
     const hand = deck.slice(0, maxHandSize);
     hand.forEach(cardName => {
       const card = document.createElement("div");
