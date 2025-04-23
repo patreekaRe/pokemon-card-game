@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let playerHP = 30;
   let playerEnergy = 3;
   let playerXP = 0;
+  let blockAmount = 0;
   let enemyHP = 25;
   let enemyIntent = "Attack (5)";
 
   const playerHPSpan = document.getElementById("player-hp");
   const playerEnergySpan = document.getElementById("player-energy");
   const playerXPSpan = document.getElementById("player-xp");
+  const playerBlockSpan = document.getElementById("player-block");
   const enemyHPSpan = document.getElementById("enemy-hp");
   const enemyIntentSpan = document.getElementById("enemy-intent");
   const battleLog = document.getElementById("battle-log");
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerHPSpan.textContent = playerHP;
     playerEnergySpan.textContent = playerEnergy;
     playerXPSpan.textContent = playerXP;
+    playerBlockSpan.textContent = blockAmount;
     enemyHPSpan.textContent = enemyHP;
     enemyIntentSpan.textContent = enemyIntent;
   }
@@ -45,10 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
           log("You used Ember! Enemy takes 5 damage.");
           break;
         case "Block":
-          // We'll simulate block with XP gain for now
           playerEnergy -= 1;
-          playerXP += 1;
-          log("You used Block! (future: add shield mechanic)");
+          blockAmount += 6;
+          log("You used Block! Gained 6 block.");
           break;
         case "Tailwind":
           playerEnergy -= 1;
@@ -76,8 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
   endTurnBtn.addEventListener("click", () => {
     if (enemyHP > 0) {
       log("Ashroot attacks for 5!");
-      playerHP -= 5;
-      playerEnergy = 3; // refresh energy
+      if (blockAmount >= 5) {
+        blockAmount -= 5;
+        log("Block absorbed the damage!");
+      } else {
+        const damageLeft = 5 - blockAmount;
+        playerHP -= damageLeft;
+        blockAmount = 0;
+        log("Block absorbed part of the damage. You took " + damageLeft + " damage.");
+      }
+      playerEnergy = 3;
+      blockAmount = 0;
       updateStats();
     }
 
