@@ -1,33 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pokémon Single Page Game</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This app helps youtubers pick the best background color for their videos">
+    	<meta name="keywords" content="youtube, background, lights">
 
-<!-- STARTER SCREEN -->
-<h1></h1>
-<img id="Logo" class="logo" src="https://loodibee.com/wp-content/uploads/International-Pokemon-logo.png" alt="generic youtube gaming chair">
-<img id="pokemonImg" style="display: none;" />
-<h2 id="startGameBtn">Start Game</h2>
-<div class="remoteControl">
-  <button id="red" class="poke-btn" data-pokemon="charmander"></button>
-  <button id="green" class="poke-btn" data-pokemon="bulbasaur"></button>
-  <button id="blue" class="poke-btn" data-pokemon="squirtle"></button>
-  <button id="red2" class="poke-btn" data-pokemon="cyndaquil"></button>
-  <button id="green2" class="poke-btn" data-pokemon="chikorita"></button>
-  <button id="blue2" class="poke-btn" data-pokemon="totodile"></button>
-  <button id="red3" class="poke-btn" data-pokemon="torchic"></button>
-  <button id="green3" class="poke-btn" data-pokemon="treecko"></button>
-  <button id="blue3" class="poke-btn" data-pokemon="mudkip"></button>
-</div>
-<div id="trainerBackground"></div>
+		<title>Pokemon Starter Picker</title>
 
-<!-- DECK BUILDER SCREEN -->
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1></h1>
+		<img id="Logo" class="logo" src="https://loodibee.com/wp-content/uploads/International-Pokemon-logo.png" alt="generic youtube gaming chair">
+		<img id="pokemonImg" style="display: none;" />
+		<img id="pokemonImg" src="" alt="Selected Pokémon" />
+		<h2 id="startGameBtn">Start Game</h2>
+		<div class="remoteControl">
+			<button id="red" class="poke-btn" data-pokemon="charmander"></button>
+			<button id="green" class="poke-btn" data-pokemon="bulbasaur"></button>
+			<button id="blue" class="poke-btn" data-pokemon="squirtle"></button>
+		  
+			<button id="red2" class="poke-btn" data-pokemon="cyndaquil"></button>
+			<button id="green2" class="poke-btn" data-pokemon="chikorita"></button>
+			<button id="blue2" class="poke-btn" data-pokemon="totodile"></button>
+		  
+			<button id="red3" class="poke-btn" data-pokemon="torchic"></button>
+			<button id="green3" class="poke-btn" data-pokemon="treecko"></button>
+			<button id="blue3" class="poke-btn" data-pokemon="mudkip"></button>
+		</div>
+		
+<script src="main.js"></script>
+<script src="deck.js"></script>
+<script src="battle.js"></script>
+<script>
+// Single Page Navigation
+document.getElementById('startGameBtn').addEventListener('click', () => {
+  if (!localStorage.getItem('starter')) {
+    alert("Please select a Pokémon!");
+    return;
+  }
+  document.querySelector('body').scrollTo(0, 0);
+  document.querySelector('body').style.overflow = 'auto';
+  document.querySelector('.remoteControl').style.display = 'none';
+  document.getElementById('pokemonImg').style.display = 'none';
+  document.getElementById('startGameBtn').style.display = 'none';
+  document.getElementById('deck-screen').style.display = 'block';
+});
+
+document.getElementById('startBattleBtn').addEventListener('click', () => {
+  document.getElementById('deck-screen').style.display = 'none';
+  document.getElementById('battle-screen').style.display = 'block';
+});
+</script>
+<!-- Add deck and battle containers -->
 <div id="deck-screen" style="display:none;">
   <main class="game-container">
     <div class="poke-card fire" id="charmander-card">
@@ -46,7 +73,6 @@
   </main>
 </div>
 
-<!-- BATTLE SCREEN -->
 <div id="battle-screen" style="display: none;">
   <div class="battle-container">
     <div class="battle-header">
@@ -76,30 +102,6 @@
   </div>
 </div>
 
-<!-- SCRIPTS -->
-<script src="main.js"></script>
-<script src="deck.js"></script>
-<script src="battle.js"></script>
-
-<script>
-  document.getElementById('startGameBtn').addEventListener('click', () => {
-    if (!localStorage.getItem('starter')) {
-      alert("Please select a Pokémon!");
-      return;
-    }
-    document.querySelector('body').scrollTo(0, 0);
-    document.querySelector('body').style.overflow = 'auto';
-    document.querySelector('.remoteControl').style.display = 'none';
-    document.getElementById('pokemonImg').style.display = 'none';
-    document.getElementById('startGameBtn').style.display = 'none';
-    document.getElementById('deck-screen').style.display = 'block';
-  });
-
-  document.getElementById('startBattleBtn').addEventListener('click', () => {
-    document.getElementById('deck-screen').style.display = 'none';
-    document.getElementById('battle-screen').style.display = 'block';
-  });
-</script>
-
-</body>
+		<div id="trainerBackground"></div>
+	</body>
 </html>
