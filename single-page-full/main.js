@@ -19,15 +19,15 @@ const spriteMap = {
 };
 
 const colorMap = {
-  charmander: "#ffcccc",
-  bulbasaur: "#ccffcc",
-  squirtle: "#cce5ff",
-  cyndaquil: "#ffe6cc",
-  chikorita: "#e0ffd4",
-  totodile: "#cce6ff",
-  torchic: "#ffddcc",
-  treecko: "#ccffe0",
-  mudkip: "#ccf2ff"
+  charmander: "#ff4444",
+  bulbasaur: "#66cc66",
+  squirtle: "#66b3ff",
+  cyndaquil: "#ff9966",
+  chikorita: "#aaff99",
+  totodile: "#66ccff",
+  torchic: "#ff9966",
+  treecko: "#99ffcc",
+  mudkip: "#99e6ff"
 };
 
 pokeButtons.forEach(button => {
@@ -36,11 +36,13 @@ pokeButtons.forEach(button => {
     selectedStarter = pokemon;
     localStorage.setItem("starter", pokemon);
 
-    // Change preview GIF
+    // Update preview GIF
     pokemonImg.src = spriteMap[pokemon] || "";
     pokemonImg.style.display = "block";
 
-    // Change background color
-    trainerBackground.style.backgroundColor = colorMap[pokemon] || "#ffffff";
+    // Update trainer background and full page background color
+    const color = colorMap[pokemon] || "#ffffff";
+    trainerBackground.style.backgroundColor = color;
+    document.body.style.backgroundColor = color;
   });
 });
