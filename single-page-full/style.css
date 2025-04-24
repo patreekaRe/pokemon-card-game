@@ -14,6 +14,12 @@ body {
   height: 100vh;
   z-index: -1;
   transition: background-color 0.4s ease;
+  animation: background-glow 6s infinite alternate;
+}
+
+@keyframes background-glow {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.2); }
 }
 
 .poke-btn {
@@ -22,4 +28,7 @@ body {
   border-radius: 50%;
   margin: 8px;
   border: 2px solid #000;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
 }
