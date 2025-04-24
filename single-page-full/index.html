@@ -1,107 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    	<meta charset="utf-8">
-    	<meta name="description" content="This app helps youtubers pick the best background color for their videos">
-    	<meta name="keywords" content="youtube, background, lights">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Pokémon Starter Picker Game">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Starter Picker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="trainerBackground"></div>
 
-		<title>Pokemon Starter Picker</title>
+  <h1></h1>
+  <img id="Logo" class="logo" src="https://loodibee.com/wp-content/uploads/International-Pokemon-logo.png" alt="Pokemon Logo">
+  <img id="pokemonImg" src="" alt="Selected Pokémon" style="display: none;" />
+  <h2 id="startGameBtn">Start Game</h2>
 
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="normalize.css">
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-		<h1></h1>
-		<img id="Logo" class="logo" src="https://loodibee.com/wp-content/uploads/International-Pokemon-logo.png" alt="generic youtube gaming chair">
-		<img id="pokemonImg" style="display: none;" />
-		<img id="pokemonImg" src="" alt="Selected Pokémon" />
-		<h2 id="startGameBtn">Start Game</h2>
-		<div class="remoteControl">
-			<button id="red" class="poke-btn" data-pokemon="charmander"></button>
-			<button id="green" class="poke-btn" data-pokemon="bulbasaur"></button>
-			<button id="blue" class="poke-btn" data-pokemon="squirtle"></button>
-		  
-			<button id="red2" class="poke-btn" data-pokemon="cyndaquil"></button>
-			<button id="green2" class="poke-btn" data-pokemon="chikorita"></button>
-			<button id="blue2" class="poke-btn" data-pokemon="totodile"></button>
-		  
-			<button id="red3" class="poke-btn" data-pokemon="torchic"></button>
-			<button id="green3" class="poke-btn" data-pokemon="treecko"></button>
-			<button id="blue3" class="poke-btn" data-pokemon="mudkip"></button>
-		</div>
-		
-<script src="main.js"></script>
-<script src="deck.js"></script>
-<script src="battle.js"></script>
-<script>
-// Single Page Navigation
-document.getElementById('startGameBtn').addEventListener('click', () => {
-  if (!localStorage.getItem('starter')) {
-    alert("Please select a Pokémon!");
-    return;
-  }
-  document.querySelector('body').scrollTo(0, 0);
-  document.querySelector('body').style.overflow = 'auto';
-  document.querySelector('.remoteControl').style.display = 'none';
-  document.getElementById('pokemonImg').style.display = 'none';
-  document.getElementById('startGameBtn').style.display = 'none';
-  document.getElementById('deck-screen').style.display = 'block';
-});
+  <div class="remoteControl">
+    <button id="red" class="poke-btn" data-pokemon="charmander"></button>
+    <button id="green" class="poke-btn" data-pokemon="bulbasaur"></button>
+    <button id="blue" class="poke-btn" data-pokemon="squirtle"></button>
+    <button id="red2" class="poke-btn" data-pokemon="cyndaquil"></button>
+    <button id="green2" class="poke-btn" data-pokemon="chikorita"></button>
+    <button id="blue2" class="poke-btn" data-pokemon="totodile"></button>
+    <button id="red3" class="poke-btn" data-pokemon="torchic"></button>
+    <button id="green3" class="poke-btn" data-pokemon="treecko"></button>
+    <button id="blue3" class="poke-btn" data-pokemon="mudkip"></button>
+  </div>
 
-document.getElementById('startBattleBtn').addEventListener('click', () => {
-  document.getElementById('deck-screen').style.display = 'none';
-  document.getElementById('battle-screen').style.display = 'block';
-});
-</script>
-<!-- Add deck and battle containers -->
-<div id="deck-screen" style="display:none;">
-  <main class="game-container">
-    <div class="poke-card fire" id="charmander-card">
-      <img class="poke-img" src="https://media.tenor.com/hLfJG3B_ZLIAAAAj/charmander-gif-pokemon.gif" />
-      <h3 class="poke-name">Charmander</h3>
-      <p class="poke-stats">HP: 39 | XP: 0 | Lv: 5</p>
-      <div class="actions">
-        <button class="evolve-btn">Evolve</button>
-        <button class="remove-btn">Remove</button>
+  <div id="deck-screen" style="display:none;">
+    <main class="game-container">
+      <div class="poke-card fire" id="charmander-card">
+        <img class="poke-img" src="https://media.tenor.com/hLfJG3B_ZLIAAAAj/charmander-gif-pokemon.gif" />
+        <h3 class="poke-name">Charmander</h3>
+        <p class="poke-stats">HP: 39 | XP: 0 | Lv: 5</p>
+        <div class="actions">
+          <button class="evolve-btn">Evolve</button>
+          <button class="remove-btn">Remove</button>
+        </div>
       </div>
-    </div>
-    <button id="startBattleBtn"
-      style="padding: 12px 20px; font-size: 16px; background-color: #ff4444; color: white; border: none; border-radius: 8px;">
-      Start Battle
-    </button>
-  </main>
-</div>
+      <button id="startBattleBtn"
+        style="padding: 12px 20px; font-size: 16px; background-color: #ff4444; color: white; border: none; border-radius: 8px;">
+        Start Battle
+      </button>
+    </main>
+  </div>
 
-<div id="battle-screen" style="display: none;">
-  <div class="battle-container">
-    <div class="battle-header">
-      <div class="player-status">
-        <p>HP: <span id="player-hp">30</span></p>
-        <p>Energy: <span id="player-energy">3</span></p>
-        <p>XP: <span id="player-xp">0</span>/10</p>
-        <p>Block: <span id="player-block">0</span></p>
+  <div id="battle-screen" style="display: none;">
+    <div class="battle-container">
+      <div class="battle-header">
+        <div class="player-status">
+          <p>HP: <span id="player-hp">30</span></p>
+          <p>Energy: <span id="player-energy">3</span></p>
+          <p>XP: <span id="player-xp">0</span>/10</p>
+          <p>Block: <span id="player-block">0</span></p>
+        </div>
+        <button id="end-turn-btn">End Turn</button>
       </div>
-      <button id="end-turn-btn">End Turn</button>
-    </div>
 
-    <div class="enemy-area">
-      <div class="enemy-card">
-        <img src="https://i.imgur.com/ZsKTW3A.png" alt="Ashroot" />
-        <h3>Ashroot</h3>
-        <p>HP: <span id="enemy-hp">25</span></p>
-        <p>Intent: <span id="enemy-intent">Attack (5)</span></p>
+      <div class="enemy-area">
+        <div class="enemy-card">
+          <img src="https://i.imgur.com/ZsKTW3A.png" alt="Ashroot" />
+          <h3>Ashroot</h3>
+          <p>HP: <span id="enemy-hp">25</span></p>
+          <p>Intent: <span id="enemy-intent">Attack (5)</span></p>
+        </div>
       </div>
-    </div>
 
-    <div class="player-hand" id="player-hand"></div>
-
-    <div class="battle-log" id="battle-log">
-      <p>Loading battle...</p>
+      <div class="player-hand" id="player-hand"></div>
+      <div class="battle-log" id="battle-log"><p>Loading battle...</p></div>
     </div>
   </div>
-</div>
 
-		<div id="trainerBackground"></div>
-	</body>
+  <script src="main.js"></script>
+  <script src="deck.js"></script>
+  <script src="battle.js"></script>
+
+  <script>
+    document.getElementById('startGameBtn').addEventListener('click', () => {
+      if (!localStorage.getItem('starter')) {
+        alert("Please select a Pokémon!");
+        return;
+      }
+      document.querySelector('body').scrollTo(0, 0);
+      document.querySelector('body').style.overflow = 'auto';
+      document.querySelector('.remoteControl').style.display = 'none';
+      document.getElementById('pokemonImg').style.display = 'none';
+      document.getElementById('startGameBtn').style.display = 'none';
+      document.getElementById('deck-screen').style.display = 'block';
+    });
+
+    document.getElementById('startBattleBtn').addEventListener('click', () => {
+      document.getElementById('deck-screen').style.display = 'none';
+      document.getElementById('battle-screen').style.display = 'block';
+    });
+  </script>
+</body>
 </html>
